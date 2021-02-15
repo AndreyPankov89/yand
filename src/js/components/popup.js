@@ -2,8 +2,10 @@ class Popup{
     
     constructor (popup_block){
         this._popup_block = popup_block;
-        this._popup_block.querySelector('.popup__close').addEventListener('click',()=>{
-            this.close()
+        this._popup_block.querySelectorAll('.popup__close').forEach((item)=>{
+            item.addEventListener('click',()=>{
+                this.close()
+            })
         })
     }
     

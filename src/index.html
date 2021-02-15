@@ -140,7 +140,7 @@
     </footer>
 
     <div class="popup" >
-      <div class="popup__content" id="popup__login">
+      <div class="popup__content popup__content_hide" id="popup__login">
         <img class="popup__close" src="<%=require('./images/popup-close-white.svg')%>" alt="Закрыть">
         <h3 class="popup__title">Вход</h3>
         <form class="form" name="login" novalidate>
@@ -177,7 +177,7 @@
         </p>
       </div>
 
-      <div class="popup__content"id="popup__signup">
+      <div class="popup__content "id="popup__signup">
         <img class="popup__close" src="<%=require('./images/popup-close-white.svg')%>" alt="Закрыть">
         <h3 class="popup__title">Регистрация</h3>
         <form class="form" name="signup" novalidate>
@@ -227,7 +227,7 @@
         </form>
         <p class="popup__text">или <span class="popup__link popup__colored-text">Войти</span></p>
       </div>      
-      <div class="popup__content" id="popup__success">
+      <div class="popup__content popup__content_hide" id="popup__success">
         <img class="popup__close" src="<%=require('./images/popup-close-white.svg')%>" alt="Закрыть">
         <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
         <p class="popup__text popup__text_left"><span class="popup__colored-text popup__link">Войти</span></p>
