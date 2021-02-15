@@ -14,4 +14,4 @@ https://konstantinokhlynin.github.io/NewsExplorer-Frontend/
 1. Header.js
 2. popup.js
     - Открытие/закрытие
-    
+    - Переключение форм Входа/регистрации (по умолчанию стоит Регистрация, но можно поменять, перекинув класс popup__content_hide)
