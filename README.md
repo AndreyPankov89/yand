@@ -8,6 +8,7 @@ https://konstantinokhlynin.github.io/NewsExplorer-Frontend/
 3. popup__is-opened по сути больше не нужен
 4. В index.html кнопку авторизации по разметки сделал также как в about. это проще с точки зрения скриптов.
 5. добавил плагин babel/plugin-proposal-class-properties 
+6. Изменил form__button.css Сделал стилизацию в зависимости от атрибут disabled. Так правилнее с точки зрения того, что кнопка не нажмется, если форма заполнена не корректно.
 
 
 ======ЧТО СДЕЛАНО ПО СКРИПТАМ =======
@@ -15,3 +16,5 @@ https://konstantinokhlynin.github.io/NewsExplorer-Frontend/
 2. popup.js
     - Открытие/закрытие
     - Переключение форм Входа/регистрации (по умолчанию стоит Регистрация, но можно поменять, перекинув класс popup__content_hide)
+3. form.js
+    - реализованы базовые методы
