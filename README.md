@@ -16,5 +16,7 @@ https://konstantinokhlynin.github.io/NewsExplorer-Frontend/
 2. popup.js
     - Открытие/закрытие
     - Переключение форм Входа/регистрации (по умолчанию стоит Регистрация, но можно поменять, перекинув класс popup__content_hide)
-3. form.js
+3. *form.js 
     - реализованы базовые методы
+4. *mainApi.js 
+    - Реализованы методы, но не оттестированы.
