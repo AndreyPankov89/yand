@@ -9,7 +9,7 @@ class MainApi{
             throw new Error(res.status);
         }
 
-        return await res.json;
+        return await res.json();
     }
     async signup(user){
         const url = this._baseURL+'/signup';

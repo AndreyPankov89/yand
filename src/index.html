@@ -32,7 +32,11 @@
       <p class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
 
       <form class="search__form">
-        <input class="search__input" type="text" placeholder="Введите тему новости">
+        <input class="search__input" 
+                name="query" 
+                type="text" 
+                placeholder="Введите тему новости"
+                data-propname="query">
         <button class="search__button" type="submit">Искать</button>
       </form>
     </div>
@@ -152,6 +156,7 @@
               id="email-login"
               name="email-login"
               placeholder="Введите Email"
+              data-propname="email"
               required
             >
             <span id="email-error-login" class="form__error">Неправильный формат email</span>
@@ -164,13 +169,14 @@
               id="password"
               name="password"
               placeholder="Введите пароль"
+              data-propname="password"
               required
               minlength="8"
             >
             <span id="password-error-login" class="form__error">Введите более 8 символов</span>
           </div>
           <div class="form__input-block"></div>
-          <button type="submit" name="button" class="form__button " disabled="false">Войти</button>
+          <button type="submit" name="button" class="form__button " disabled="true">Войти</button>
         </form>
         <p class="popup__text">или
           <span class="popup__link popup__colored-text" data-action="popup__signup">Зарегистрироваться</span>
@@ -189,6 +195,7 @@
               id="email-signup"
               name="email-signup"
               placeholder="Введите Email"
+              data-propname="email"
               required
             >
             <span id="email-error-signup" class="form__error">Неправильный формат email</span>
@@ -201,6 +208,7 @@
               id="password-signup"
               name="password-signup"
               placeholder="Введите пароль"
+              data-propname="password"
               required
               minlength="8"
             >
@@ -214,6 +222,7 @@
               id="name"
               name="name"
               placeholder="Введите своё имя"
+              data-propname="name"
               required
               minlength="2"
               maxlength="30"
@@ -222,7 +231,7 @@
           </div>
           <div class="form__input-block">
             <span id="already-exists-error" class="form__error form__error_centre">Такой пользователь уже зарегестрирован</span>
-            <button type="submit" name="button" class="form__button">Зарегистрироваться</button>
+            <button type="submit" name="button" class="form__button" disabled>Зарегистрироваться</button>
           </div>
         </form>
         <p class="popup__text">или <span class="popup__link popup__colored-text" data-action="popup__login">Войти</span></p>

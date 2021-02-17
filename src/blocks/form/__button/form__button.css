@@ -8,17 +8,15 @@
   border-radius: 80px;
   border: 0;
   cursor: pointer;
-}
-.form__button[disabled='true']{
-  background: #E6E8EB;
-  color: #B6BCBF;
-}
-.form__button[disabled='false']{
   background-color: #2F71E5;
   color: #fff;
   transition: all 0.3s linear;
 }
-.form__button[disabled='false']:hover {
+.form__button[disabled]{
+  background: #E6E8EB;
+  color: #B6BCBF;
+}
+.form__button:hover {
   background-color: #347EFF;
 }
 .form__button:focus {

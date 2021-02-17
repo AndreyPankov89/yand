@@ -1,7 +1,14 @@
 class Form{
+
+    //Класс работы с формой, выбранной по селектору
     constructor(formSelector){
         this._form = document.querySelector(formSelector);
         this._inputs = this._form.querySelectorAll('input');
+        this._submitBtn = this._form.querySelector('button');
+        this._validateForm = this._validateForm.bind(this);
+        this._validateInputElement = this._validateInputElement.bind(this);
+        this._clear = this._clear.bind(this);
+        this._getInfo = this._getInfo.bind(this);
     }
 
     _validateInputElement(input){
@@ -12,23 +19,25 @@ class Form{
                 return re.test(text);
             }
             case "password":{
-                return (text.length < 8)
+                return (text.length >= 8)
                 
             }
             case "text":{
-                return (text.length>1 && text.length<30)
+                return (text.length>=2 && text.length<=30)
             }
             default:{
-                return false
+                return true
             }
         }
     }
     _validateForm(){
+        console.log('ll');
+        
         let isFormValid = true;
         this._inputs.forEach((input)=>{
             isFormValid = isFormValid && this._validateInputElement(input);
         });
-        this._form.querySelector('.form__button').disabled = isFormValid;
+        this._submitBtn.disabled = !isFormValid;
     }
     _clear(){
         this._inputs.forEach((input)=>{
@@ -38,10 +47,28 @@ class Form{
     _getInfo(){
         const info = {};
         this._inputs.forEach((input)=>{
-            info[input.name] = input.value;
+            info[input.dataset.propname] = input.value;
         });
         return info;
     }
+
+    setEventListeners(submitEvent){
+        this._inputs.forEach((input)=>{
+            input.addEventListener('input', this._validateForm)
+        });
+        this._form.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            submitEvent(this._getInfo());
+            console.log('ooooooooo');
+            
+        })
+    }
+    removeEventListeners = () => {
+        this._inputs.forEach((input)=>{
+            input.removeEventListener('input', this._validateForm);
+        });
+    };
+    
 }
 
 export default Form;
