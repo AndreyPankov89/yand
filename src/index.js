@@ -2,7 +2,7 @@ import "./style.css";
 import Header from './js/components/header';
 import Form from './js/components/form';
 import NewsApi from './js/api/newsApi';
-import { formApiDate } from './js/utils/functions';
+import { formApiDate,getNews } from './js/utils/functions';
 
 const header = new Header();
 header.render({isLoggedIn: false, userName:''});
@@ -15,6 +15,7 @@ const signupForm = new Form('form[name="signup"]');
 signupForm.setEventListeners((e)=>{console.log(e)})
 console.log(signupForm);
 
+
 const toDate = new Date();
 const fromDate =  new Date(toDate - 60 * 60 * 24 * 7 * 1000);
 const newsApi = new NewsApi(
@@ -25,5 +26,5 @@ const newsApi = new NewsApi(
     "ru"
 )
 const searchForm = new Form('form.search__form');
-searchForm.setEventListeners((e)=>{console.log(e); newsApi.getNews(e.query)})
+searchForm.setEventListeners((e)=>{console.log(e); getNews(e.query)})
 console.log(searchForm);
