@@ -56,4 +56,11 @@ const signUp = (data)=>{
             console.log(res);
         })
 }
-export { formApiDate, getNews, FormDispDate, signUp }
+const signIn = (data)=>{
+    const mainApi = new MainApi();
+    mainApi.signin(data)
+        .then((res)=>{
+            console.log(res);
+        })
+}
+export { formApiDate, getNews, FormDispDate, signUp, signIn }
