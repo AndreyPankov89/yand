@@ -13,6 +13,9 @@ class Form{
 
     _validateInputElement(input){
         const text = input.value;
+        if (input.classList.contains('search__input')){
+            return true;
+        }
         switch (input.type){
             case "email":{
                 let re = /\S+@\S+\.\S+/;

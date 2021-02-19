@@ -18,7 +18,8 @@ class MainApi{
             credentials: "include",
             body: JSON.stringify(user), 
             headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+             // 'Access-Control-Allow-Origin': '*'
             }
         }
 
@@ -31,7 +32,8 @@ class MainApi{
             credentials: "include",
             body: JSON.stringify(user), 
             headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+             // 'Access-Control-Allow-Origin': '*'
             }
         }
 
@@ -51,6 +53,9 @@ class MainApi{
         const url = this._baseURL+'/articles';
         const data = {
             credentials: "include",
+            headers:{
+               // 'Access-Control-Allow-Origin': '*'
+            }
         }
         return await this._postData(url,data)
     }
@@ -62,17 +67,21 @@ class MainApi{
             credentials: "include",
             body: JSON.stringify(article), 
             headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              ///'Access-Control-Allow-Origin': '*'
             }
         }
         return await this._postData(url,data)
     }
 
     async deleteArticles(id){
-        const url = this._baseURL+'/articles/+id';
+        const url = this._baseURL+'/articles/'+id;
         const data = {
             method: 'DELETE',     
-            credentials: "include"
+            credentials: "include",
+            headers:{
+                //'Access-Control-Allow-Origin': '*'
+            }
         }
         return await this._postData(url,data)
     }

@@ -28,5 +28,5 @@ https://konstantinokhlynin.github.io/NewsExplorer-Frontend/
 6. functions.js
     - Функция формирования даты.
 7. Поиск статей
-8. Рендер статей на странице
+8. Рендер статей на странице, кнопка Показать больше
 

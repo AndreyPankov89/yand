@@ -1,4 +1,4 @@
-import {API_KEY} from '../constants/constants'
+import {API_KEY,NEWS_API_BASE} from '../constants/constants'
 class NewsApi{
     
     constructor(from, to, sortBy, pageSize, language) {
@@ -10,8 +10,9 @@ class NewsApi{
         this.language = language;
         this.apiKey = API_KEY;
     }
-    async getNews(query){
-        const url = `https://nomoreparties.co/news/v2/everything?apiKey=${this.apiKey}&q=${query}&from=${this.from}&to=${this.to}&sortBy=${this.sortBy}&pageSize=${this.pageSize}`;
+    async getNews(q){
+        const query = q || '*';
+        const url = `${NEWS_API_BASE}?apiKey=${this.apiKey}&q=${query}&from=${this.from}&to=${this.to}&sortBy=${this.sortBy}&pageSize=${this.pageSize}`;
         console.log(query);
         
         console.log('getnews',url);
