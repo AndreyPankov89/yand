@@ -34,8 +34,6 @@ class Form{
         }
     }
     _validateForm(){
-        console.log('ll');
-        
         let isFormValid = true;
         this._inputs.forEach((input)=>{
             isFormValid = isFormValid && this._validateInputElement(input);
@@ -61,9 +59,7 @@ class Form{
         });
         this._form.addEventListener('submit',(e)=>{
             e.preventDefault();
-            submitEvent(this._getInfo());
-            console.log('ooooooooo');
-            
+            submitEvent(this._getInfo());            
         })
     }
     removeEventListeners = () => {

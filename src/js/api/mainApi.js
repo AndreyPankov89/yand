@@ -41,7 +41,6 @@ class MainApi{
 
         return await this._postData(url,data);
     }
-
     async getUserData(token){
         const url = this._baseURL+'/users/me';
         console.log(token);
@@ -53,8 +52,6 @@ class MainApi{
         }
         return await this._postData(url,data);
     }
-
-
     async getArticles(token){
         const url = this._baseURL+'/articles';
         const data = {
@@ -64,7 +61,6 @@ class MainApi{
         }
         return await this._postData(url,data)
     }
-    
     async createArticle(article,token){
         const url = this._baseURL+'/articles';
         console.log(article);
@@ -78,7 +74,6 @@ class MainApi{
         }
         return await this._postData(url,data)
     }
-
     async deleteArticle(id,token){
         const url = this._baseURL+'/articles/'+id;
         const data = {

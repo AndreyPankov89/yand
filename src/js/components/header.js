@@ -18,9 +18,11 @@ class Header{
             header.querySelector('.header__auth-name').innerHTML = "Авторизоваться";
             header.querySelector('.header__logout-icon').style.display = "none";
             
-            header.querySelector('.header__auth').addEventListener('click',()=>{
-                this._popup.open();
-            })
+            if (this._popup){
+                header.querySelector('.header__auth').addEventListener('click',()=>{
+                    this._popup.open();
+                })
+            }
         }
     }
 }

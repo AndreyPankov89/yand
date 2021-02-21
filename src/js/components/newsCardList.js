@@ -3,18 +3,17 @@ import { NEWS_PER_PAGE } from '../constants/constants';
 import {markingArticle } from '../utils/functions'
 class NewsCardList{
     constructor(articles){
-        this.articles =articles;
-        this.articlesList = document.querySelector('.articles__list'); 
-        this.startNumber = 0;
+        this._articles =articles;
+        this._articlesList = document.querySelector('.articles__list'); 
+        this._startNumber = 0;
         this.renderResults = this.renderResults.bind(this);
         this.toggleMoreBtn = this.toggleMoreBtn.bind(this)
-        this.more = this.more.bind(this);
-        this.query= '*'
+        this._more = this.more.bind(this);
+        this._query= '*'
     }
 
     renderLoader(){
-        this.startNumber = 0;
-        this.articlesList.innerHTML=(
+        this._articlesList.innerHTML=(
             `
             <div class="articles__loading">
                 <div class="articles__loading-preloader"></div>
@@ -25,20 +24,20 @@ class NewsCardList{
     }
 
     renderResults(){
-        const {articles, articlesList, startNumber} = this
-        if (articles.length !==0 ){
-            if (startNumber===0){
-                articlesList.innerHTML=''
+        const {_articles, _articlesList, _startNumber} = this
+        if (_articles.length !==0 ){
+            if (_startNumber===0){
+                _articlesList.innerHTML=''
             }       
-            for (let i = startNumber; i<articles.length && i<startNumber+NEWS_PER_PAGE ; ++i){
+            for (let i = _startNumber; i<_articles.length && i<_startNumber+NEWS_PER_PAGE ; ++i){
                 
-                const card = new NewsCard({...articles[i],number:i});
-                articlesList.innerHTML += card.create()
+                const card = new NewsCard({..._articles[i],number:i});
+                _articlesList.innerHTML += card.create()
             }
-            this.startNumber = startNumber + NEWS_PER_PAGE;
+            this._startNumber = _startNumber + NEWS_PER_PAGE;
         }
         else{
-            articlesList.innerHTML=(
+            _articlesList.innerHTML=(
                 `
               <div class="articles__not-found">
                 <img src="../../../images/not-found-v1.png" alt="" class="articles__not-found-image">
@@ -48,16 +47,16 @@ class NewsCardList{
               </div>
             `)
         }
-        articlesList.querySelectorAll('.articles__flag').forEach((item)=>{
+        _articlesList.querySelectorAll('.articles__flag').forEach((item)=>{
             item.addEventListener('click',(e)=>{
-                markingArticle(e,{...this.articles[e.target.dataset.id],keyword: this.query})
+                markingArticle(e,{...this._articles[e.target.dataset.id],keyword: this._query})
             })
         })
         return articlesList;
     }
 
     more(){
-        if (this.startNumber<this.articles.length){
+        if (this._startNumber<this._articles.length){
             const results = this.renderResults();
             this.toggleMoreBtn();
             return results;
@@ -65,13 +64,13 @@ class NewsCardList{
     }
 
     toggleMoreBtn(){
-        document.querySelector('.articles__button').disabled = !(this.startNumber < this.articles.length);
+        document.querySelector('.articles__button').disabled = !(this._startNumber < this._articles.length);
     }
 
     setArticles(articles, query=''){
-        this.startNumber = 0;
-        this.articles = articles;
-        this.query = query
+        this._startNumber = 0;
+        this._articles = articles;
+        this._query = query
     }
 
 }

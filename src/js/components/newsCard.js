@@ -1,15 +1,14 @@
-
-
 import {FormDispDate} from '../utils/functions'
+
 class NewsCard{
     constructor(info){
-        this.info = info;
+        this._info = info;
         
         ////
     }
 
     create(){
-        const {urlToImage, publishedAt,title,description,url,source,number,id} = this.info
+        const {urlToImage, publishedAt,title,description,url,source,number,id} = this._info
         const dispDate = FormDispDate(publishedAt);
         let flag = 'articles__flag';
         flag += id ? ' articles__flag-marked' :''

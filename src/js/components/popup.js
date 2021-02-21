@@ -13,9 +13,7 @@ class Popup{
             item.addEventListener('click',(e)=>{
                 this.setContent(e.target.dataset.action);
             })
-        })
-
-        
+        })      
     }
     
     open(){
