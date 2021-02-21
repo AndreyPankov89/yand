@@ -187,10 +187,22 @@
       </div>      
       <div class="popup__content popup__content_hide" id="popup__success">
         <img class="popup__close" src="<%=require('./images/popup-close-white.svg')%>" alt="Закрыть">
-        <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
-        <p class="popup__text popup__text_left"><span class="popup__colored-text popup__link">Войти</span></p>
+        <h3 class="popup__title" id="popup__result__title">Пользователь успешно зарегистрирован!</h3>
+        <p class="popup__text popup__text_left">
+          <span class="popup__colored-text popup__link" data-action="popup__login">Войти</span>
+        </p>
+      </div>
+      <div class="popup__content popup__content_hide" id="popup__error">
+        <img class="popup__close" src="<%=require('./images/popup-close-white.svg')%>" alt="Закрыть">
+        <h3 class="popup__title">Ошибка регистрации, попробуйте снова</h3>
+        <p class="popup__text popup__text_left">
+          <span class="popup__colored-text popup__link" data-action="popup__signup">Зарегистрироваться</span>
+          или
+          <span class="popup__colored-text popup__link" data-action="popup__login">Войти</span>
+        </p>
       </div>
     </div>
+
 
 
   </div>

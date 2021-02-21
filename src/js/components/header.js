@@ -1,8 +1,9 @@
-import Popup from './popup'
+
 
 class Header{
-    constructor(color=""){
+    constructor(popup=null,color=""){
         this._color = color;
+        this._popup = popup
     }
     render(props){
         const {isLoggedIn, userName} = props;
@@ -16,10 +17,9 @@ class Header{
         else{
             header.querySelector('.header__auth-name').innerHTML = "Авторизоваться";
             header.querySelector('.header__logout-icon').style.display = "none";
-            const popupBlock = document.querySelector('.popup')
-            const popup = new Popup(popupBlock);
+            
             header.querySelector('.header__auth').addEventListener('click',()=>{
-                popup.open();
+                this._popup.open();
             })
         }
     }

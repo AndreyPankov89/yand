@@ -1,6 +1,6 @@
 class MainApi{
     constructor(){
-        this._baseURL = "http://www.news-explorer.students.nomoreparties.xyz";
+        this._baseURL = "https://news-explorer.students.nomoreparties.xyz";
     }
 
     async _postData(url, data){
@@ -13,23 +13,25 @@ class MainApi{
     }
     async signup(user){
         const url = this._baseURL+'/signup';
+        console.log(user);
         const data = {
             method: 'POST', 
-            credentials: "include",
+            //credentials: "include",
             body: JSON.stringify(user), 
             headers: {
               'Content-Type': 'application/json',
-             // 'Access-Control-Allow-Origin': '*'
+              'Access-Control-Allow-Origin': '*'
             }
         }
 
         return await this._postData(url,data);
     }
     async signin(user){
-        const url = this._baseURL+'/signup';
+        const url = this._baseURL+'/signin';
+
         const data = {
             method: 'POST',     
-            credentials: "include",
+            ///credentials: "include",
             body: JSON.stringify(user), 
             headers: {
               'Content-Type': 'application/json',
@@ -40,47 +42,49 @@ class MainApi{
         return await this._postData(url,data);
     }
 
-    async getUserData(){
+    async getUserData(token){
         const url = this._baseURL+'/users/me';
+        console.log(token);
         const data = { 
-            credentials: "include",
+           // credentials: "include",
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
         }
         return await this._postData(url,data);
     }
 
 
-    async getArticles(){
+    async getArticles(token){
         const url = this._baseURL+'/articles';
         const data = {
-            credentials: "include",
             headers:{
-               // 'Access-Control-Allow-Origin': '*'
+                'authorization': `Bearer ${token}`
             }
         }
         return await this._postData(url,data)
     }
     
-    async createArticles(article){
+    async createArticle(article,token){
         const url = this._baseURL+'/articles';
+        console.log(article);
         const data = {
             method: 'POST',     
-            credentials: "include",
             body: JSON.stringify(article), 
             headers: {
               'Content-Type': 'application/json',
-              ///'Access-Control-Allow-Origin': '*'
+              'authorization': `Bearer ${token}`
             }
         }
         return await this._postData(url,data)
     }
 
-    async deleteArticles(id){
+    async deleteArticle(id,token){
         const url = this._baseURL+'/articles/'+id;
         const data = {
-            method: 'DELETE',     
-            credentials: "include",
+            method: 'DELETE',
             headers:{
-                //'Access-Control-Allow-Origin': '*'
+                'authorization': `Bearer ${token}`
             }
         }
         return await this._postData(url,data)

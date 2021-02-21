@@ -9,12 +9,16 @@ class NewsCard{
     }
 
     create(){
-        const {urlToImage, publishedAt,title,description,url,source} = this.info
-        const dispDate = FormDispDate(publishedAt)
+        const {urlToImage, publishedAt,title,description,url,source,number,id} = this.info
+        const dispDate = FormDispDate(publishedAt);
+        let flag = 'articles__flag';
+        flag += id ? ' articles__flag-marked' :''
+        console.dir(flag);
+        
         const card = `
         <div class="articles__item">
-            <div class="articles__flag"></div>
-            <img src=${urlToImage} alt="${title}" class="articles__article-image">
+            <div  data-id=${number} class='${flag}'></div>
+            <img src=${urlToImage} alt="${flag}" class="articles__article-image">
             <div class="articles__article-information">
                 <p class="articles__article-date">${dispDate}</p>
                 <h2 class="articles__article-title">${title}</h2>
@@ -27,6 +31,7 @@ class NewsCard{
         `;
         return card
     }
+
 }
 
 export default NewsCard;

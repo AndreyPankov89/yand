@@ -14,6 +14,8 @@ class Popup{
                 this.setContent(e.target.dataset.action);
             })
         })
+
+        
     }
     
     open(){
