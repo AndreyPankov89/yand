@@ -8,7 +8,7 @@ class NewsCardList{
         this._startNumber = 0;
         this.renderResults = this.renderResults.bind(this);
         this.toggleMoreBtn = this.toggleMoreBtn.bind(this)
-        this._more = this.more.bind(this);
+        this.more = this.more.bind(this);
         this._query= '*'
     }
 
@@ -24,7 +24,7 @@ class NewsCardList{
     }
 
     renderResults(){
-        const {_articles, _articlesList, _startNumber} = this
+        const {_articles, _articlesList, _startNumber} = this;
         if (_articles.length !==0 ){
             if (_startNumber===0){
                 _articlesList.innerHTML=''
@@ -52,7 +52,7 @@ class NewsCardList{
                 markingArticle(e,{...this._articles[e.target.dataset.id],keyword: this._query})
             })
         })
-        return articlesList;
+        return _articlesList;
     }
 
     more(){
@@ -64,6 +64,7 @@ class NewsCardList{
     }
 
     toggleMoreBtn(){
+        
         document.querySelector('.articles__button').disabled = !(this._startNumber < this._articles.length);
     }
 

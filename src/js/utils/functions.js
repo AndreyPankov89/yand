@@ -31,6 +31,7 @@ const getNews = (query)=>{
     const newsCardList = new NewsCardList([]);
     newsCardList.renderLoader();
     newsApi.getNews(query)
+
         .then((result)=>{
             newsCardList.setArticles(result.articles,query);
             newsCardList.renderResults();
@@ -74,7 +75,11 @@ const signIn = (data,popup,header)=>{
             popup.setContent("popup__error");
         })
 }
-
+const logout = (header)=>{
+    localStorage.removeItem('token'),
+    localStorage.removeItem('username')
+    header.render({isLoggedIn: false, userName:''});
+}
 const markingArticle = (e, article)=>{
 
     const mainApi = new MainApi();
@@ -141,10 +146,12 @@ const getMarkingArticles = ()=>{
             console.log(res);
         })
 }
+
 export { formApiDate,
          getNews, 
          FormDispDate, 
          signUp, 
          signIn, 
+         logout,
          markingArticle,
          getMarkingArticles }

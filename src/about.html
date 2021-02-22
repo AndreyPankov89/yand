@@ -24,7 +24,26 @@
       </nav>
       <img src="<%= require('./images/menu.png')%>" alt="" class="header__nav-icon">
     </header>
-
+    <div class="mobile-menu">
+      <div class="mobile-menu__container">
+      <div class="mobile-menu__header">
+        <h1 class="header__logo">NewsExplorer</h1>
+        <img class="mobile-menu__close" src="<%=require('./images/popup-close-white.svg')%>" alt="Закрыть">
+      </div>
+        <nav class="mobile-menu__nav">
+          <ul class="mobile-menu__list">
+            <li class="mobile-menu__item-main"><a href="./index.html" class="header__main mobile-menu__main">Главная</a></li>
+            <li class="mobile-menu__item-saved"><a href="./about.html" class="header__main mobile-menu__saved">Сохранённые статьи</a></li>
+            <li class="mobile-menu__item">
+              <button class="header__auth mobile-menu__auth">
+                <span class="header__auth-name header__black-mod">Грета</span>
+                <img src="<%= require('./images/logout.png')%>" alt="logout icon" class="header__logout-icon header__black-mod">    
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
     <section class="articles-info">
     <p class="articles-info__name">Сохранённые статьи</p>
     <h2 class="articles-info__title"> <span id="owner"></span>, у вас  <span class="articles-info__title articles-info__title_count">5</span> сохранённых статей </h2>
